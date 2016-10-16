@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self showLoadingIndicator:YES];
+    [self showUIElements:NO];
     [self setupLocationManager];
 }
 
@@ -38,20 +38,6 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
-    }
-}
-
-- (void)showLoadingIndicator:(BOOL)show {
-    self.cityInfoLabel.hidden = show;
-    self.weatherConditionLabel.hidden = show;
-    self.temperatureLabel.hidden = show;
-    self.dateOfForeCastLabel.hidden = show;
-    self.humidityButton.hidden = show;
-    self.windSpeedButton.hidden = show;
-    if (show) {
-        [SVProgressHUD show];
-    } else {
-        [SVProgressHUD dismiss];
     }
 }
 
@@ -65,6 +51,7 @@
             NSLog(@"No authorization");
             break;
         case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [self showLoadingIndicator:YES];
             [self.locationManager startUpdatingLocation];
         default:
             break;
@@ -93,6 +80,25 @@
              }];
 }
 
+#pragma MARK - UI Configurations
+
+- (void)showLoadingIndicator:(BOOL)show {
+    if (show) {
+        [SVProgressHUD show];
+    } else {
+        [SVProgressHUD dismiss];
+    }
+}
+
+- (void)showUIElements:(BOOL)show {
+    self.cityInfoLabel.hidden = !show;
+    self.weatherConditionLabel.hidden = !show;
+    self.temperatureLabel.hidden = !show;
+    self.dateOfForeCastLabel.hidden = !show;
+    self.humidityButton.hidden = !show;
+    self.windSpeedButton.hidden = !show;
+}
+
 - (void)updateWeatherResultWithWeather:(IDTWeather *)weather {
     self.weatherConditionLabel.text = [weather.condition capitalizedString];
     int temperature = weather.temperature;
@@ -101,11 +107,14 @@
     [self.humidityButton setTitle:[NSString stringWithFormat:@"%d %%",weather.humidity] forState:UIControlStateNormal];
     [self.windSpeedButton setTitle:[NSString stringWithFormat:@"%.1f mph",weather.windSpeed] forState:UIControlStateNormal];
     [self showLoadingIndicator:NO];
+    [self showUIElements:YES];
 }
+
+#pragma MARK - Helpers
 
 - (NSString *)getDateStringFromDate:(NSDate *)date {
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"EE, MMMM dd, yyyy"];
+    [dateFormatter setDateFormat:@"EEEE, MMM d, yyyy"];
     NSString *dateString = [dateFormatter stringFromDate:date];
     return dateString;
 }
