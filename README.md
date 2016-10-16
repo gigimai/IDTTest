@@ -39,8 +39,10 @@ $ open IDTTest.xcworkspace/
 
 You can find the implementation [HERE](https://github.com/gigimai/IDTTest/blob/master/IDTTest/NSString%2BUtilities.m) and unit test [HERE](https://github.com/gigimai/IDTTest/blob/master/IDTTestTests/NSStringUtilTests.swift). I have explained in the comment section. At the first glance I would go with `NSMutableString` which iterate through the input string and append the last character to the result, but after a certain amount of Google queries and I've found the solution with UTF32Encoding works better in terms of performance and it does work emojis, just in case a developer forgets to use recommended `rangeOfComposedCharacterSequencesForRange:`. There is another solution using `memCopy` but in my humble opinion the algorithm looks complicated and the performance speed is slightly slower than using UTF32Encoding.
 
-2. Explain what happens when the following code is executed (ARC being disabled in the compiler):
+2.  Explain what happens when the following code is executed (ARC being disabled in the compiler):
 
 ```
 MyClass *myClass = [[[[MyClass alloc] init] autorelease] autorelease];
 ```
+
+What this code does is add the object of `MyClass` to the current autorelease pool twice, which is going to be drained at the end of run loop iteration. This code makes a perfect nonsense, but it won't crash immediately because `myClass` stays valid until the pool is drained, what actually would happen is undefined, the behavior could manifest in any number of way but it tends to get more likely to crash.
