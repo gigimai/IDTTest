@@ -8,6 +8,7 @@
 
 #import "IDTWeatherForecastViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "SVProgressHUD.h"
 #import "IDTWeatherRadar.h"
 #import "IDTWeather.h"
 
@@ -27,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self showLoadingIndicator:YES];
     [self setupLocationManager];
 }
 
@@ -36,6 +38,20 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
+    }
+}
+
+- (void)showLoadingIndicator:(BOOL)show {
+    self.cityInfoLabel.hidden = show;
+    self.weatherConditionLabel.hidden = show;
+    self.temperatureLabel.hidden = show;
+    self.dateOfForeCastLabel.hidden = show;
+    self.humidityButton.hidden = show;
+    self.windSpeedButton.hidden = show;
+    if (show) {
+        [SVProgressHUD show];
+    } else {
+        [SVProgressHUD dismiss];
     }
 }
 
@@ -84,6 +100,7 @@
     self.dateOfForeCastLabel.text = [self getDateStringFromDate:weather.dateOfForecast];
     [self.humidityButton setTitle:[NSString stringWithFormat:@"%d %%",weather.humidity] forState:UIControlStateNormal];
     [self.windSpeedButton setTitle:[NSString stringWithFormat:@"%.1f mph",weather.windSpeed] forState:UIControlStateNormal];
+    [self showLoadingIndicator:NO];
 }
 
 - (NSString *)getDateStringFromDate:(NSDate *)date {
