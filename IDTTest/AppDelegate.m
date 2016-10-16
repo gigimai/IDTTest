@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "IDTWeatherForecastViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    IDTWeatherForecastViewController *initialViewController = [[IDTWeatherForecastViewController alloc] initWithNibName:NSStringFromClass([IDTWeatherForecastViewController class]) bundle:nil];
+    self.window.rootViewController = initialViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

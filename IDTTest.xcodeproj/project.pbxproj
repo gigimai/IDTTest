@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		3A0A412D1DB325220007AFFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A412C1DB325220007AFFC /* main.m */; };
 		3A0A41301DB325220007AFFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A412F1DB325220007AFFC /* AppDelegate.m */; };
-		3A0A41331DB325220007AFFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41321DB325220007AFFC /* ViewController.m */; };
-		3A0A41361DB325220007AFFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A41341DB325220007AFFC /* Main.storyboard */; };
 		3A0A41381DB325220007AFFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A41371DB325220007AFFC /* Assets.xcassets */; };
 		3A0A413B1DB325220007AFFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A41391DB325220007AFFC /* LaunchScreen.storyboard */; };
 		3A0A41461DB325220007AFFC /* IDTTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41451DB325220007AFFC /* IDTTestTests.m */; };
 		3A0A41521DB3269C0007AFFC /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41511DB3269C0007AFFC /* NSString+Utilities.m */; };
 		3A0A41571DB329E50007AFFC /* NSStringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41561DB329E50007AFFC /* NSStringUtilTests.swift */; };
+		3A0FB8101DB3933300B37D3C /* IDTWeatherForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FB80E1DB3933300B37D3C /* IDTWeatherForecastViewController.m */; };
+		3A0FB8111DB3933300B37D3C /* IDTWeatherForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FB80F1DB3933300B37D3C /* IDTWeatherForecastViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +33,6 @@
 		3A0A412C1DB325220007AFFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A0A412E1DB325220007AFFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A0A412F1DB325220007AFFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A0A41311DB325220007AFFC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3A0A41321DB325220007AFFC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3A0A41351DB325220007AFFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A0A41371DB325220007AFFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A0A413A1DB325220007AFFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A0A413C1DB325220007AFFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +43,9 @@
 		3A0A41511DB3269C0007AFFC /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
 		3A0A41551DB329E40007AFFC /* IDTTestTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDTTestTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A0A41561DB329E50007AFFC /* NSStringUtilTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStringUtilTests.swift; sourceTree = "<group>"; };
+		3A0FB80D1DB3933300B37D3C /* IDTWeatherForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDTWeatherForecastViewController.h; path = Controllers/IDTWeatherForecastViewController.h; sourceTree = "<group>"; };
+		3A0FB80E1DB3933300B37D3C /* IDTWeatherForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDTWeatherForecastViewController.m; path = Controllers/IDTWeatherForecastViewController.m; sourceTree = "<group>"; };
+		3A0FB80F1DB3933300B37D3C /* IDTWeatherForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDTWeatherForecastViewController.xib; path = Controllers/IDTWeatherForecastViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +87,9 @@
 		3A0A412A1DB325220007AFFC /* IDTTest */ = {
 			isa = PBXGroup;
 			children = (
+				3A0FB80C1DB3931700B37D3C /* Controllers */,
 				3A0A412E1DB325220007AFFC /* AppDelegate.h */,
 				3A0A412F1DB325220007AFFC /* AppDelegate.m */,
-				3A0A41311DB325220007AFFC /* ViewController.h */,
-				3A0A41321DB325220007AFFC /* ViewController.m */,
-				3A0A41341DB325220007AFFC /* Main.storyboard */,
 				3A0A41371DB325220007AFFC /* Assets.xcassets */,
 				3A0A41391DB325220007AFFC /* LaunchScreen.storyboard */,
 				3A0A413C1DB325220007AFFC /* Info.plist */,
@@ -119,6 +117,16 @@
 				3A0A41551DB329E40007AFFC /* IDTTestTests-Bridging-Header.h */,
 			);
 			path = IDTTestTests;
+			sourceTree = "<group>";
+		};
+		3A0FB80C1DB3931700B37D3C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A0FB80D1DB3933300B37D3C /* IDTWeatherForecastViewController.h */,
+				3A0FB80E1DB3933300B37D3C /* IDTWeatherForecastViewController.m */,
+				3A0FB80F1DB3933300B37D3C /* IDTWeatherForecastViewController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +173,7 @@
 		3A0A41201DB325220007AFFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = IDT;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = MaiMai;
 				TargetAttributes = {
@@ -203,7 +212,7 @@
 			files = (
 				3A0A413B1DB325220007AFFC /* LaunchScreen.storyboard in Resources */,
 				3A0A41381DB325220007AFFC /* Assets.xcassets in Resources */,
-				3A0A41361DB325220007AFFC /* Main.storyboard in Resources */,
+				3A0FB8111DB3933300B37D3C /* IDTWeatherForecastViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A0A41331DB325220007AFFC /* ViewController.m in Sources */,
+				3A0FB8101DB3933300B37D3C /* IDTWeatherForecastViewController.m in Sources */,
 				3A0A41301DB325220007AFFC /* AppDelegate.m in Sources */,
 				3A0A41521DB3269C0007AFFC /* NSString+Utilities.m in Sources */,
 				3A0A412D1DB325220007AFFC /* main.m in Sources */,
@@ -248,14 +257,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A0A41341DB325220007AFFC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A0A41351DB325220007AFFC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A0A41391DB325220007AFFC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -421,6 +422,7 @@
 				3A0A414C1DB325220007AFFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A0A414D1DB325220007AFFC /* Build configuration list for PBXNativeTarget "IDTTestTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +431,7 @@
 				3A0A414F1DB325220007AFFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
