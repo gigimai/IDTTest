@@ -26,6 +26,21 @@
 
 @implementation IDTWeatherForecastViewController
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidEnterForeground)
+                                                     name:UIApplicationWillEnterForegroundNotification
+                                                   object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self showUIElements:NO];
@@ -39,6 +54,10 @@
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
         [self.locationManager requestWhenInUseAuthorization];
     }
+}
+
+- (void)applicationDidEnterForeground {
+    [self.locationManager startUpdatingLocation];
 }
 
 #pragma MARK - CLLocationManagerDelegate
@@ -63,10 +82,12 @@
     CLLocation *currentLocation = self.locationManager.location;
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        if (!error) {
-            CLPlacemark *placeMark = placemarks.firstObject;
-            self.cityInfoLabel.text = placeMark.locality;
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!error) {
+                CLPlacemark *placeMark = placemarks.firstObject;
+                self.cityInfoLabel.text = placeMark.locality;
+            }
+        });
     }];
     IDTWeatherRadar *radar = [IDTWeatherRadar new];
     __weak typeof(self) weakSelf = self;
