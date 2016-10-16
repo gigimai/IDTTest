@@ -16,6 +16,9 @@
 		3A0A41571DB329E50007AFFC /* NSStringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41561DB329E50007AFFC /* NSStringUtilTests.swift */; };
 		3A0FB8101DB3933300B37D3C /* IDTWeatherForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FB80E1DB3933300B37D3C /* IDTWeatherForecastViewController.m */; };
 		3A0FB8111DB3933300B37D3C /* IDTWeatherForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FB80F1DB3933300B37D3C /* IDTWeatherForecastViewController.xib */; };
+		3A3B2C031DB3968F009CE92B /* IDTWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2C021DB3968F009CE92B /* IDTWeather.m */; };
+		3A3B2C061DB396F7009CE92B /* IDTWeatherRadar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B2C051DB396F7009CE92B /* IDTWeatherRadar.m */; };
+		DCF626249C365CBA90EAB5B9 /* libPods-IDTTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4242E6DD6D1142F597AA0DDE /* libPods-IDTTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,13 @@
 		3A0FB80D1DB3933300B37D3C /* IDTWeatherForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDTWeatherForecastViewController.h; path = Controllers/IDTWeatherForecastViewController.h; sourceTree = "<group>"; };
 		3A0FB80E1DB3933300B37D3C /* IDTWeatherForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDTWeatherForecastViewController.m; path = Controllers/IDTWeatherForecastViewController.m; sourceTree = "<group>"; };
 		3A0FB80F1DB3933300B37D3C /* IDTWeatherForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDTWeatherForecastViewController.xib; path = Controllers/IDTWeatherForecastViewController.xib; sourceTree = "<group>"; };
+		3A3B2C011DB3968F009CE92B /* IDTWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDTWeather.h; path = Models/IDTWeather.h; sourceTree = "<group>"; };
+		3A3B2C021DB3968F009CE92B /* IDTWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDTWeather.m; path = Models/IDTWeather.m; sourceTree = "<group>"; };
+		3A3B2C041DB396F7009CE92B /* IDTWeatherRadar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDTWeatherRadar.h; path = Models/IDTWeatherRadar.h; sourceTree = "<group>"; };
+		3A3B2C051DB396F7009CE92B /* IDTWeatherRadar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDTWeatherRadar.m; path = Models/IDTWeatherRadar.m; sourceTree = "<group>"; };
+		4242E6DD6D1142F597AA0DDE /* libPods-IDTTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IDTTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		700477634FCF6F341EA8D91A /* Pods-IDTTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDTTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IDTTest/Pods-IDTTest.debug.xcconfig"; sourceTree = "<group>"; };
+		9420B6E3018734E014D60F55 /* Pods-IDTTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IDTTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-IDTTest/Pods-IDTTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF626249C365CBA90EAB5B9 /* libPods-IDTTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CF9AB08DBDA617D5F420938 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4242E6DD6D1142F597AA0DDE /* libPods-IDTTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A0A411F1DB325220007AFFC = {
 			isa = PBXGroup;
 			children = (
 				3A0A412A1DB325220007AFFC /* IDTTest */,
 				3A0A41441DB325220007AFFC /* IDTTestTests */,
 				3A0A41291DB325220007AFFC /* Products */,
+				5171E4131F379FFBE47352E6 /* Pods */,
+				2CF9AB08DBDA617D5F420938 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +108,7 @@
 		3A0A412A1DB325220007AFFC /* IDTTest */ = {
 			isa = PBXGroup;
 			children = (
+				3A3B2C001DB39678009CE92B /* Models */,
 				3A0FB80C1DB3931700B37D3C /* Controllers */,
 				3A0A412E1DB325220007AFFC /* AppDelegate.h */,
 				3A0A412F1DB325220007AFFC /* AppDelegate.m */,
@@ -129,6 +151,26 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		3A3B2C001DB39678009CE92B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A3B2C011DB3968F009CE92B /* IDTWeather.h */,
+				3A3B2C021DB3968F009CE92B /* IDTWeather.m */,
+				3A3B2C041DB396F7009CE92B /* IDTWeatherRadar.h */,
+				3A3B2C051DB396F7009CE92B /* IDTWeatherRadar.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5171E4131F379FFBE47352E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				700477634FCF6F341EA8D91A /* Pods-IDTTest.debug.xcconfig */,
+				9420B6E3018734E014D60F55 /* Pods-IDTTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A0A414A1DB325220007AFFC /* Build configuration list for PBXNativeTarget "IDTTest" */;
 			buildPhases = (
+				DD4A1F7AC80F76C4458FA53E /* Check Pods Manifest.lock */,
 				3A0A41241DB325220007AFFC /* Sources */,
 				3A0A41251DB325220007AFFC /* Frameworks */,
 				3A0A41261DB325220007AFFC /* Resources */,
+				F2C49D030DAC917F6E348447 /* Embed Pods Frameworks */,
+				D6865FD8F7B950363FBCA766 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,6 +270,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D6865FD8F7B950363FBCA766 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IDTTest/Pods-IDTTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD4A1F7AC80F76C4458FA53E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F2C49D030DAC917F6E348447 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IDTTest/Pods-IDTTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A0A41241DB325220007AFFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -233,7 +326,9 @@
 				3A0FB8101DB3933300B37D3C /* IDTWeatherForecastViewController.m in Sources */,
 				3A0A41301DB325220007AFFC /* AppDelegate.m in Sources */,
 				3A0A41521DB3269C0007AFFC /* NSString+Utilities.m in Sources */,
+				3A3B2C061DB396F7009CE92B /* IDTWeatherRadar.m in Sources */,
 				3A0A412D1DB325220007AFFC /* main.m in Sources */,
+				3A3B2C031DB3968F009CE92B /* IDTWeather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -344,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -354,6 +449,7 @@
 		};
 		3A0A414B1DB325220007AFFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 700477634FCF6F341EA8D91A /* Pods-IDTTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IDTTest/Info.plist;
@@ -365,6 +461,7 @@
 		};
 		3A0A414C1DB325220007AFFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9420B6E3018734E014D60F55 /* Pods-IDTTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = IDTTest/Info.plist;

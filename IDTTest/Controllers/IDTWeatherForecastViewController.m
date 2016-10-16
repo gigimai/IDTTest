@@ -7,10 +7,15 @@
 //
 
 #import "IDTWeatherForecastViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import "IDTWeatherRadar.h"
+#import "IDTWeather.h"
 
-@interface IDTWeatherForecastViewController ()
+@interface IDTWeatherForecastViewController () <CLLocationManagerDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *cityInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weatherInfoLabel;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -18,22 +23,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setupLocationManager];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupLocationManager {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
 }
 
-/*
-#pragma mark - Navigation
+#pragma MARK - CLLocationManagerDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined:
+        case kCLAuthorizationStatusRestricted:
+        case kCLAuthorizationStatusDenied:
+            NSLog(@"No authorization");
+            break;
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [self.locationManager startUpdatingLocation];
+        default:
+            break;
+    }
 }
-*/
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    [self.locationManager stopUpdatingLocation];
+    CLLocation *currentLocation = self.locationManager.location;
+    IDTWeatherRadar *radar = [IDTWeatherRadar new];
+    [radar getCurrentWeather:currentLocation.coordinate.latitude
+                   longitude:currentLocation.coordinate.longitude
+             completionBlock:^(IDTWeather *weather) {
+                 NSLog(@"Weather %@",weather);
+             }];
+}
 
 @end
