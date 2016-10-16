@@ -94,7 +94,7 @@
     return self;
 }
 
--(NSDate *)utcToLocalTime:(NSDate*)date {
+- (NSDate *)utcToLocalTime:(NSDate*)date {
     NSTimeZone *currentTimeZone =
     [NSTimeZone defaultTimeZone];
     NSInteger secondsOffset =

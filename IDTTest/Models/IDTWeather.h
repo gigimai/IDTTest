@@ -27,7 +27,7 @@
 /// light rain, heavy snow, etc...
 @property (nonatomic, strong) NSString* condition;
 
-/// min/max temp in celcius
+/// avg temp in celcius
 @property (nonatomic) int temperature;
 
 /// current humidity level (perecent)
