@@ -14,6 +14,8 @@
 		3A0A41381DB325220007AFFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A41371DB325220007AFFC /* Assets.xcassets */; };
 		3A0A413B1DB325220007AFFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0A41391DB325220007AFFC /* LaunchScreen.storyboard */; };
 		3A0A41461DB325220007AFFC /* IDTTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41451DB325220007AFFC /* IDTTestTests.m */; };
+		3A0A41521DB3269C0007AFFC /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41511DB3269C0007AFFC /* NSString+Utilities.m */; };
+		3A0A41571DB329E50007AFFC /* NSStringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0A41561DB329E50007AFFC /* NSStringUtilTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		3A0A41411DB325220007AFFC /* IDTTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IDTTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0A41451DB325220007AFFC /* IDTTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDTTestTests.m; sourceTree = "<group>"; };
 		3A0A41471DB325220007AFFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A0A41501DB3269C0007AFFC /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
+		3A0A41511DB3269C0007AFFC /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
+		3A0A41551DB329E40007AFFC /* IDTTestTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDTTestTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A0A41561DB329E50007AFFC /* NSStringUtilTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStringUtilTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,8 @@
 				3A0A41391DB325220007AFFC /* LaunchScreen.storyboard */,
 				3A0A413C1DB325220007AFFC /* Info.plist */,
 				3A0A412B1DB325220007AFFC /* Supporting Files */,
+				3A0A41501DB3269C0007AFFC /* NSString+Utilities.h */,
+				3A0A41511DB3269C0007AFFC /* NSString+Utilities.m */,
 			);
 			path = IDTTest;
 			sourceTree = "<group>";
@@ -107,6 +115,8 @@
 			children = (
 				3A0A41451DB325220007AFFC /* IDTTestTests.m */,
 				3A0A41471DB325220007AFFC /* Info.plist */,
+				3A0A41561DB329E50007AFFC /* NSStringUtilTests.swift */,
+				3A0A41551DB329E40007AFFC /* IDTTestTests-Bridging-Header.h */,
 			);
 			path = IDTTestTests;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 			files = (
 				3A0A41331DB325220007AFFC /* ViewController.m in Sources */,
 				3A0A41301DB325220007AFFC /* AppDelegate.m in Sources */,
+				3A0A41521DB3269C0007AFFC /* NSString+Utilities.m in Sources */,
 				3A0A412D1DB325220007AFFC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A0A41461DB325220007AFFC /* IDTTestTests.m in Sources */,
+				3A0A41571DB329E50007AFFC /* NSStringUtilTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,10 +377,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = IDTTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bappvn.IDTTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IDTTestTests/IDTTestTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IDTTest.app/IDTTest";
 			};
 			name = Debug;
@@ -377,10 +392,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = IDTTestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bappvn.IDTTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IDTTestTests/IDTTestTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IDTTest.app/IDTTest";
 			};
 			name = Release;
