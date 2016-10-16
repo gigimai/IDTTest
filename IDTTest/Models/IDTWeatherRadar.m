@@ -7,7 +7,7 @@
 //
 
 #import "IDTWeatherRadar.h"
-#import "AFNetworking.h"
+#import "IDTHTTPRequestOperationManager.h"
 
 static const NSString *IDTWeatherBaseURL = @"http://api.openweathermap.org/";
 
@@ -27,7 +27,7 @@ static NSString * const kAppID = @"APPID";
                       parameters:(NSDictionary *)parameters
                  completionBlock:(void (^)(NSDictionary *))completionBlock {
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    IDTHTTPRequestOperationManager *manager = [IDTHTTPRequestOperationManager sharedInstance];
     
     [manager GET:URL
       parameters:parameters
