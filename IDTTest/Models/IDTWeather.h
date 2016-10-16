@@ -20,13 +20,15 @@
 /// the ID corresponding to general weather status
 @property (nonatomic) int statusID;
 
+/// the weather icon ID
+@property (nonatomic, strong) NSString *weatherIconId;
+
 /// a more descriptive weather condition:
 /// light rain, heavy snow, etc...
 @property (nonatomic, strong) NSString* condition;
 
-/// min/max temp in farenheit
-@property (nonatomic) int temperatureMin;
-@property (nonatomic) int temperatureMax;
+/// min/max temp in celcius
+@property (nonatomic) int temperature;
 
 /// current humidity level (perecent)
 @property (nonatomic) int humidity;

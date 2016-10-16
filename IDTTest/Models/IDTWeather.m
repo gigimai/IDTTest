@@ -20,47 +20,28 @@
          * that the same data will be available for every location
          */
         
-        _dateOfForecast = [self utcToLocalTime:[NSDate
-                                                dateWithTimeIntervalSince1970:
-                                                [dictionary[@"dt"] doubleValue]]];
+        _dateOfForecast = [self utcToLocalTime:[NSDate dateWithTimeIntervalSince1970:[dictionary[@"dt"] doubleValue]]];
         
         // use the bool to determine which data format to parse
         if (isCurrentWeather) {
-            int temperatureMin =
-            [dictionary[@"main"][@"temp_min"] intValue];
-            if(temperatureMin) {
-                _temperatureMin = temperatureMin;
+            int temperature = [dictionary[@"main"][@"temp"] intValue];
+            if(temperature) {
+                _temperature = temperature;
             }
-            
-            int temperatureMax =
-            [dictionary[@"main"][@"temp_max"] intValue];
-            if (temperatureMax) {
-                _temperatureMax = temperatureMax;
-            }
-            
-            int humidity =
-            [dictionary[@"main"][@"humidity"] intValue];
+
+            int humidity = [dictionary[@"main"][@"humidity"] intValue];
             if (humidity) {
                 _humidity = humidity;
             }
             
-            float windSpeed =
-            [dictionary[@"wind"][@"speed"] floatValue];
+            float windSpeed = [dictionary[@"wind"][@"speed"] floatValue];
             if (windSpeed) {
                 _windSpeed = windSpeed;
             }
-        }
-        else {
-            int temperatureMin =
-            [dictionary[@"temp"][@"min"] intValue];
-            if (temperatureMin) {
-                _temperatureMin = temperatureMin;
-            }
-            
-            int temperatureMax =
-            [dictionary[@"temp"][@"max"] intValue];
-            if (temperatureMax) {
-                _temperatureMax = temperatureMax;
+        } else {
+            int temperature = [dictionary[@"temp"] intValue];
+            if (temperature) {
+                _temperature = temperature;
             }
             
             int humidity =
@@ -99,6 +80,11 @@
                 NSString *condition = weatherData[@"description"];
                 if (condition) {
                     _condition = condition;
+                }
+                
+                NSString *weatherIcon = weatherData[@"icon"];
+                if (weatherIcon) {
+                    _weatherIconId = weatherIcon;
                 }
             }
         }

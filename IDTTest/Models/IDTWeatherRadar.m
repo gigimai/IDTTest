@@ -96,6 +96,7 @@ static const NSString *IDTWeatherBaseURL = @"http://api.openweathermap.org/";
     }
     //Inject openweatherorg APP ID
     [params setObject:@"dfe8ab65bd12f706b2c374d571ef9801" forKey:@"APPID"];
+    [params setObject:@"metric" forKey:@"units"];
     return  params.copy;
 }
 @end
