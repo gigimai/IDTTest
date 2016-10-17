@@ -46,3 +46,8 @@ MyClass *myClass = [[[[MyClass alloc] init] autorelease] autorelease];
 ```
 
 What this code does is add the object of `MyClass` to the current autorelease pool twice, which is going to be drained at the end of run loop iteration. This code makes a perfect nonsense, but it won't crash immediately because `myClass` stays valid until the pool is drained, what actually would happen is undefined, the behavior could manifest in any number of way but it tends to get more likely to crash.
+
+
+## Rants
+
+I was tempted to try with some JSON Mapper like (JSONModel)[https://github.com/JSONModel/JSONModel] but taking a look at [OpenWeatherMap API JSON Response](http://openweathermap.org/current#current_JSON) I notice that they use `description` as a key, so it will make it super difficult for me to map it to `NSObject` since `description` is a reserved key >.< This just makes me so sad just by looking at all those magic strings in the model class. I wish I could have more time to investigate other ways of JSON mapping or data serialization/deserialization. I've found out that [Apache Thrift](http://thrift.apache.org) looks promising but their website is broken often, plus I couldn't find a place to download their latest source, the Thrift version I am using does not support ARC.
