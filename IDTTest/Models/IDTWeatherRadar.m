@@ -38,7 +38,7 @@ static NSString * const kAppID = @"APPID";
                  completionBlock(nil);
              }
          } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
-             // handle error
+             completionBlock(nil);
          }];
 }
 
@@ -77,8 +77,7 @@ static NSString * const kAppID = @"APPID";
     [self fetchWeatherFromProvider:url
                         parameters:[self requestParameters:@{kLattitude:@(latitude),kLongitude:@(longitude)}]
                    completionBlock:^(NSDictionary * weatherData) {
-                       completionBlock([[IDTWeather alloc]
-                                        initWithDictionary:weatherData isCurrentWeather:TRUE]);
+                       completionBlock([[IDTWeather alloc] initWithDictionary:weatherData isCurrentWeather:TRUE]);
                    }];
 }
 

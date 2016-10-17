@@ -18,7 +18,8 @@
  * @param longitude Location longitude
  * @param completionBlock Array of weather results
  */
-- (void)getWeeklyWeather:(float)latitude longitude:(float)longitude
+- (void)getWeeklyWeather:(float)latitude
+               longitude:(float)longitude
          completionBlock:(void (^)(NSArray *))completionBlock;
 
 /**
@@ -29,6 +30,7 @@
  * @param longitude Location longitude
  * @param completionBlock Weather object
  */
-- (void)getCurrentWeather:(float)latitude longitude:(float)longitude
+- (void)getCurrentWeather:(float)latitude
+                longitude:(float)longitude
           completionBlock:(void (^)(IDTWeather *))completionBlock;
 @end

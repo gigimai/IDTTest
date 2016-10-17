@@ -64,10 +64,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     switch (status) {
-        case kCLAuthorizationStatusNotDetermined:
         case kCLAuthorizationStatusRestricted:
         case kCLAuthorizationStatusDenied:
-            NSLog(@"No authorization");
+            [self showAlertControllerWithTitle:@"Oopsie daisie"
+                                       message:@"App does not know where you are. You need to allow me to access your current location data"];
             break;
         case kCLAuthorizationStatusAuthorizedWhenInUse:
             [self showLoadingIndicator:YES];
@@ -96,7 +96,12 @@
              completionBlock:^(IDTWeather *weather) {
                  dispatch_async(dispatch_get_main_queue(), ^{
                      __strong typeof(weakSelf) strongSelf = weakSelf;
-                     [strongSelf updateWeatherResultWithWeather:weather];
+                     [strongSelf showLoadingIndicator:NO];
+                     if (weather) {
+                         [strongSelf updateWeatherResultWithWeather:weather];
+                     } else {
+                         [strongSelf showAlertControllerWithTitle:@"Oops" message:@"Something went wrong. We cannot find your weather. Meowy :-("];
+                     }
                  });
              }];
 }
@@ -127,7 +132,6 @@
     self.dateOfForeCastLabel.text = [self getDateStringFromDate:weather.dateOfForecast];
     [self.humidityButton setTitle:[NSString stringWithFormat:@"%d %%",weather.humidity] forState:UIControlStateNormal];
     [self.windSpeedButton setTitle:[NSString stringWithFormat:@"%.1f mph",weather.windSpeed] forState:UIControlStateNormal];
-    [self showLoadingIndicator:NO];
     [self showUIElements:YES];
 }
 
@@ -138,6 +142,13 @@
     [dateFormatter setDateFormat:@"EEEE, MMM d, yyyy"];
     NSString *dateString = [dateFormatter stringFromDate:date];
     return dateString;
+}
+
+- (void)showAlertControllerWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

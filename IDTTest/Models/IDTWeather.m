@@ -11,6 +11,9 @@
 @implementation IDTWeather
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
                   isCurrentWeather:(BOOL)isCurrentWeather {
+    if (!dictionary) {
+        return nil;
+    }
     self = [super init];
     
     if (self) {
